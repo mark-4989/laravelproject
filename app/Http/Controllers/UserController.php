@@ -16,10 +16,15 @@ $usertype =Auth()->user()->usertype;
 
 if($usertype == 'user')
 {
-    return view('dashboard');
-} else if($usertype == 'user')
+    return view('user.userhome');
+}
+ else if($usertype == 'admin')
 {
     return view('dashboard');
+}
+else 
+{
+return redirect()->back();
 }
 
 }
