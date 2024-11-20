@@ -29,4 +29,7 @@ return redirect()->back();
 
 }
     }
+    public function createroom(){
+        return view('admin.createroom');
+    }
 }
