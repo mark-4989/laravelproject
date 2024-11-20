@@ -32,4 +32,7 @@ return redirect()->back();
     public function createroom(){
         return view('admin.createroom');
     }
+    public function room(){
+        return view('admin.index');
+    }
 }
