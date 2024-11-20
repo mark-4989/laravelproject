@@ -35,4 +35,8 @@ return redirect()->back();
     public function room(){
         return view('admin.index');
     }
+    public function addroom()
+    {
+        
+    }
 }

@@ -27,6 +27,8 @@ Route::get('/dashboard', function () {
 Route::get('/user',[UserController::class,'index'])->middleware('auth')->name('user');
 Route::get('/createroom',[UserController::class,'createroom']);
 Route::get('/room',[UserController::class,'room']);
+Route::post('/addroom',[UserController::class,'addroom']);
+
 
 
 Route::middleware('auth')->group(function () {
