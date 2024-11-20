@@ -20,7 +20,7 @@ if($usertype == 'user')
 }
  else if($usertype == 'admin')
 {
-    return view('dashboard');
+    return view('admin.index');
 }
 else 
 {
