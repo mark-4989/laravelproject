@@ -1,3 +1,4 @@
+@extends('layout.app')
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,10 +16,13 @@
                     <x-nav-link :href="route('user')" :active="request()->routeIs('user')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('booking')" :active="request()->routeIs('booking.index')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
+            <!-- Settings Dropdown --> 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
