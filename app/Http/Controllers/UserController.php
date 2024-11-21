@@ -17,7 +17,7 @@ $usertype =Auth()->user()->usertype;
 
 if($usertype == 'user')
 {
-    return view('user.userhome');
+    return view('home.index');
 }
  else if($usertype == 'admin')
 {
@@ -30,6 +30,14 @@ return redirect()->back();
 
 }
     }
+
+    public function home()
+    { 
+        $room=Room::all();
+        return view('home.index',compact('room'));
+ 
+    }
+
     public function createroom(){
         return view('admin.createroom');
     }

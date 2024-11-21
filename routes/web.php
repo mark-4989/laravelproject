@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/',[UserController::class, 'home']);
 // Route::resource('/booking',BookingController::class);
 Route::get('/booking',[BookingController::class,'index'])->name(name: 'booking');
 Route::get('/dashboard', function () {
