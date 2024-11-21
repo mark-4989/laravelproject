@@ -33,7 +33,8 @@ Route::get('/uproom/{id}',[UserController::class,'uproom']);
 Route::post('/editroom/{id}',[UserController::class,'editroom']);
 Route::get('/roomdetails/{id}',[HomeController::class,'roomdetails']);
 Route::post('/create/{id}',[HomeController::class,'create']);
-Route::get('/bookings}',[UserController::class,'bookings']);
+Route::get('/bookings',[UserController::class,'bookings']);
+Route::get('/deletebooking/{id}',[UserController::class,'deletebooking']);
 
 
 

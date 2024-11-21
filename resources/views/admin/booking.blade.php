@@ -24,6 +24,25 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        <style>
+            .tabled{
+                border: 2px solid white;
+                margin: auto; 
+                width: 80%;
+                text-align: center;
+                margin-top: 40px;
+            }
+            .thd{
+                background-color: white;
+                padding: 1.3rem;
+            }
+            tr{
+                border: 2px solid white;
+            }
+            td{
+                padding: 10px;
+            }
+        </style>
   </head>
   <body>
     {{-- header section --}}
@@ -34,7 +53,47 @@
      @include('admin.sidebar')
      {{-- side nav end --}}
      {{-- body sec --}}
-     
+     <div class="page-content">
+     <div class="page-header">
+        <div class="container-fluid">
+            <table class="tabled">
+                <tr>
+                    <th class="thd">Room Id</th>
+                    <th class="thd">Client Name</th>
+                    <th class="thd">Email</th>
+                    <th class="thd">Phone</th>
+                    <th class="thd">Arrival date </th> 
+                    <th class="thd">Leaving date </th> 
+                    <th class="thd">Room Title</th> 
+                    <th class="thd">Price</th> 
+                    <th class="thd">Image</th> 
+                    <th class="thd">Action </th> 
+            
+                </tr>
+            
+              @foreach($data as $data)
+                  
+                <tr>
+                    <td>{{$data->room_id  }}</td>
+                    <td>{{$data->name  }}</td>
+                    <td>{{$data->email  }}</td>
+                    <td>{{ $data->phone }}</td>
+                    <td> {{$data->startdate}}</td>
+                    <td> {{$data->enddate}}</td>
+                    <td> {{$data->room->room_title}}</td>
+                    <td> {{$data->room->price}}</td>
+                    <td> <image width="100" src="/room/{{$data->room->image}}"></td>
+
+                    <td><a onclick="return confirm('Are you Sure You want to delete this Room');" class="btn btn-danger" href="{{ url('deletebooking',$data->id) }}" >Delete </a>
+                    {{-- <a class="btn btn-warning" href="" >Update</a> --}}
+                    </td>
+                </tr>
+                @endforeach  
+            
+            </table>
+        </div>
+     </div>
+     </div>
      {{-- end of body  --}}
      
        @include('admin.footer')

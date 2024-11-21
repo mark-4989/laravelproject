@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -106,7 +107,15 @@ return redirect()->back();
         
     }
     public function  bookings(){
-        return view('admin.booking');
+        $data=Booking::all();
+        return view('admin.booking',compact('data'));
     }
+
+public function deletebooking($id)
+{
+    $data = Booking::find($id);
+    $data->delete();
+    return redirect()->back();
+}
 
 }
