@@ -58,6 +58,7 @@ return redirect()->back();
     }
     public function showroom()
     {
-        return view('admin.showroom');
+        $data = Room::all();
+        return view('admin.showroom',compact('data')); 
     }
 }

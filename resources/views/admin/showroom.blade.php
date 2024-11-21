@@ -24,6 +24,25 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        <style>
+            .tabled{
+                border: 2px solid white;
+                margin: auto; 
+                width: 80%;
+                text-align: center;
+                margin-top: 40px;
+            }
+            .thd{
+                background-color: white;
+                padding: 1.3rem;
+            }
+            tr{
+                border: 2px solid white;
+            }
+            td{
+                padding: 10px;
+            }
+        </style>
   </head>
   <body>
     {{-- header section --}}
@@ -33,9 +52,33 @@
       <!-- Sidebar Navigation-->
      @include('admin.sidebar')
      {{-- side nav end --}}
-     {{-- body sec --}}
-     @include('admin.body')
-     {{-- end of body  --}}
+     <div class="page-content">
+        <div class="page-header">
+          <div class="container-fluid">
+<table class="tabled">
+    <tr>
+        <th class="thd">Room Title</th>
+        <th class="thd">Description</th>
+        <th class="thd">price</th>
+        <th class="thd">Room Type</th>
+        <th class="thd">Image </th> 
+    </tr>
+
+  @foreach ($data as $data)
+      
+    <tr>
+        <td>{{ $data->room_title }}</td>
+        <td>{{ $data->description }}</td>
+        <td>{{ $data->price }}$</td>
+        <td>{{ $data->room_type }}</td>
+        <td> <img width="100" src="room/{{ $data->image }}" > </td>
+    </tr>
+    @endforeach  
+
+</table>
+          </div>
+        </div>
+     </div>
      
        @include('admin.footer')
   </body>
