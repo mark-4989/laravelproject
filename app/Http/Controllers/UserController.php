@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Gallary;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -122,5 +123,19 @@ public function gallary()
 {
     return view('admin.gallary');
 }
+ 
+ public function upload(Request $request)
+ {
+$data= new Gallary;
+$image=$request->image;
+if($image)
+{
+    $imagename=time().'.'.$image->getClientOriginalExtension();
+    $request->image->move('galla');
+    $data->image = $imagename;
+    $data->save();
+    return redirect()->back();
+}
+ }
 
 }

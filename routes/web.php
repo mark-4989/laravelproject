@@ -36,6 +36,7 @@ Route::post('/create/{id}',[HomeController::class,'create']);
 Route::get('/bookings',[UserController::class,'bookings']);
 Route::get('/deletebooking/{id}',[UserController::class,'deletebooking']);
 Route::get('/gallary',[UserController::class,'gallary']);
+Route::post('/upload',[UserController::class,'upload']);
 
 
 
