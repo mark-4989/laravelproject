@@ -10,26 +10,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in as admin! $(function(){
-    var dtToday = new Date();
- 
-    var month = dtToday.getMonth() + 1;
-
-    var day = dtToday.getDate();
-
-    var year = dtToday.getFullYear();
-
-    if(month < 10)
-        month = '0' + month.toString();
-
-    if(day < 10)
-     day = '0' + day.toString();
-
-    var maxDate = year + '-' + month + '-' + day;
-    $('#startDate').attr('min', maxDate);
-    $('#endDate').attr('min', maxDate);
-
-});") }}
+                    {{ __("You're logged in as admin! ;") }}
                 </div>
             </div>
         </div>

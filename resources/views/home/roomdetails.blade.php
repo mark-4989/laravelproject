@@ -29,6 +29,17 @@
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <style>
+        label
+        {
+            display: inline-block;
+            width: 200px;
+        }
+        input 
+        {
+width: 100%;
+        }
+      </style>
    </head>
    <!-- body -->
    <body class="main-layout">
@@ -55,10 +66,10 @@
          
               
           
-              <div class="col-md-4 col-sm-6">
+              <div class="col-md-8">
                  <div id="serv_hover"  class="room">
-                    <div class="room_img">
-                       <figure><img style="height: 200px; width:320px" src="/room/{{ $room->image }} " alt="#"/></figure>
+                    <div style="padding: 10px;" class="room_img">
+                       <figure><img style="height: 300px; width:800px" src="/room/{{ $room->image }} " alt="#"/></figure>
                     </div>
                     <div class="bed_room">
                        <h2>{{ $room->room_title }}</h2>
@@ -69,12 +80,81 @@
                     </div>
                  </div>
               </div>
-    
+       <div class="col-md-4" >
+        <h1 style="font-size: 40px;" >Book Room</h1>
+
+        @if (session()->has('message'))
+        <div class="alert alert-success">
+         <button type="button" class="close" data-bs-dismiss="alert" >X</button>
+           {{ session()->get('message') }}
+        </div>
+        @endif
+
+        @if ($errors)
+
+        @foreach ($errors->all() as $errors )
+
+        <li style="color: red;">
+         {{ $errors }}
+        </li>
+           
+        @endforeach
+           
+        @endif
+        <form action="{{ url('create',$room->id) }} " method="POST" >
+         @csrf
+         <div>
+            <label>Name</label>
+            <input type="text" name="name" @if(Auth::id()) value="{{ Auth::user()->name }}" @endif >
+         </div>
+         <div>
+            <label>Email</label>
+            <input type="email" name="email" @if(Auth::id()) value="{{ Auth::user()->email }}" @endif >
+         </div>
+         <div>
+            <label>Phone</label>
+            <input type="number" name="phone" @if(Auth::id()) value="{{ Auth::user()->phone }}" @endif >
+         </div>
+         <div>
+            <label>Start Date</label>
+            <input type="date" name="startdate" id="startdate" >
+         </div>
+         <div>
+            <label>End Date</label>
+            <input type="date" name="enddate" id="enddate" >
+         </div>
+         <div style="padding-top: 20px;">
+            <input type="submit" class="btn btn-primary" value="Book Room" >
+         </div>
+        </form>
+       </div>
               
            </div>
+
         </div> 
      </div>
       <!--  footer -->
       @include('home.footer')
+      <script>
+        $(function(){
+         var dtToday = new Date();
+ 
+ var month = dtToday.getMonth() + 1;
+
+ var day = dtToday.getDate();
+
+ var year = dtToday.getFullYear();
+
+ if(month < 10)
+     month = '0' + month.toString();
+
+ if(day < 10)
+  day = '0' + day.toString();
+
+ var maxDate = year + '-' + month + '-' + day;
+ $('#startDate').attr('min', maxDate);
+ $('#endDate').attr('min', maxDate);
+})
+      </script>
    </body>
 </html>

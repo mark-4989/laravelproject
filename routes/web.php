@@ -32,6 +32,8 @@ Route::get('/destroy/{id }',[UserController::class,'destroy']);
 Route::get('/uproom/{id}',[UserController::class,'uproom']);
 Route::post('/editroom/{id}',[UserController::class,'editroom']);
 Route::get('/roomdetails/{id}',[HomeController::class,'roomdetails']);
+Route::post('/create/{id}',[HomeController::class,'create']);
+Route::get('/bookings}',[UserController::class,'bookings']);
 
 
 
