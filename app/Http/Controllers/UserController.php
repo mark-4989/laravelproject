@@ -17,7 +17,9 @@ $usertype =Auth()->user()->usertype;
 
 if($usertype == 'user')
 {
-    return view('home.index');
+    $room=Room::all();
+
+    return view('home.index',compact('room'));
 }
  else if($usertype == 'admin')
 {

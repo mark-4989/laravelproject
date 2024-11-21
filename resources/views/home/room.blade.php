@@ -19,12 +19,13 @@
                 </div>
                 <div class="bed_room">
                    <h3>{{ $rooms->room_title }}</h3>
-                   <p>{!! Str::limit($rooms->description,100) !!}</p>
+                   <p style="padding: 10px" >{!! Str::limit($rooms->description,100) !!}</p>
+                   <a class="btn btn-success" href="{{ url('roomdetails',$rooms->id) }}" >Room Details</a>
                 </div>
              </div>
           </div>
 
           @endforeach
        </div>
-    </div>
+    </div> 
  </div>
