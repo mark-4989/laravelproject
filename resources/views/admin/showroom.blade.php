@@ -62,6 +62,8 @@
         <th class="thd">price</th>
         <th class="thd">Room Type</th>
         <th class="thd">Image </th> 
+        <th class="thd">Action </th> 
+
     </tr>
 
   @foreach ($data as $data)
@@ -72,6 +74,9 @@
         <td>{{ $data->price }}$</td>
         <td>{{ $data->room_type }}</td>
         <td> <img width="100" src="room/{{ $data->image }}" > </td>
+        <td><a onclick="return confirm('Are you Sure You want to delete this Room');" class="btn btn-danger" href="{{ url('destroy',$data->id) }}" >Delete </a>
+        <a class="btn btn-warning" href="{{url('uproom', $data->id )}}" >Update</a>
+        </td>
     </tr>
     @endforeach  
 

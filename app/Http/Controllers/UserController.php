@@ -61,4 +61,11 @@ return redirect()->back();
         $data = Room::all();
         return view('admin.showroom',compact('data')); 
     }
+    public function destroy($id)
+    {
+        //
+        $data = Room::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
 }
