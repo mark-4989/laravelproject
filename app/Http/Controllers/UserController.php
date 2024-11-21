@@ -118,4 +118,9 @@ public function deletebooking($id)
     return redirect()->back();
 }
 
+public function gallary()
+{
+    return view('admin.gallary');
+}
+
 }
