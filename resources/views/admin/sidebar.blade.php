@@ -14,7 +14,7 @@
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Rooms</a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="/createroom">Create rooms </a></li>
-                <li><a href="#">Page</a></li>
+                <li><a href="/showroom">View Rooms</a></li>
                 <li><a href="#">Page</a></li>
               </ul>
             </li>

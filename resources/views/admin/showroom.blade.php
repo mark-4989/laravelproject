@@ -24,19 +24,6 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-        <style>
-            label{
-                display: inline-block;
-                width: 200px;
-            }
-            .design{
-                padding-top: 30px;
-            }
-            .midddle{
-                text-align: center;
-                padding-top: 40px;
-            }
-        </style>
   </head>
   <body>
     {{-- header section --}}
@@ -47,47 +34,7 @@
      @include('admin.sidebar')
      {{-- side nav end --}}
      {{-- body sec --}}
-     <div class="page-content">
-        <div class="page-header">
-          <div class="container-fluid">
-<div class="middle">
-    <h1>Add Rooms </h1>
-    <form action="{{ url('addroom') }}" method="POST" enctype="multipart/form-data" >
-        @csrf
-        <div class="design">
-            <label>Room title</label>
-            <input type="text" name="title" >
-        </div>
-        <div class="design">
-            <label>Description</label>
-            <textarea name="description"></textarea>
-        </div>
-        <div class="design">
-            <label>Price</label>
-            <input type="number" name="price" >
-        </div>
-        <div class="design">
-            <label>Room type</label>
-            <select name="type">
-                <option selected value="regular" > Regular </option>
-                <option value="premium" > premium </option>
-                <option value="dulex" >  Dulex </option>
-
-            </select>
-            
-        </div>
-        <div class="design">
-            <label>Image</label>
-            <input type="file" name="image" >
-        </div>
-        <div class="design">
-            <input type="submit" value="Add Room" >
-        </div>
-    </form>
-</div>
-          </div>
-        </div>
-     </div>
+     @include('admin.body')
      {{-- end of body  --}}
      
        @include('admin.footer')

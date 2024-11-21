@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,8 +36,28 @@ return redirect()->back();
     public function room(){
         return view('admin.index');
     }
-    public function addroom()
+    public function addroom(Request $request)
     {
-        
+$data =new Room();  
+$data->room_title = $request->title; 
+$data->description = $request->description ; 
+$data->price = $request->price; 
+$data->room_type = $request->type; 
+$image=$request->image;
+if($image)
+{
+    $imagename=time().'.'.$image->getClientOriginalExtension();
+    $request->image->move('room',$imagename);
+    $data->image=$imagename; 
+}
+
+$data->save();
+
+return redirect()->back();
+
+    }
+    public function showroom()
+    {
+        return view('admin.showroom');
     }
 }

@@ -28,6 +28,7 @@ Route::get('/user',[UserController::class,'index'])->middleware('auth')->name('u
 Route::get('/createroom',[UserController::class,'createroom']);
 Route::get('/room',[UserController::class,'room']);
 Route::post('/addroom',[UserController::class,'addroom']);
+Route::get('/showroom',[UserController::class,'showroom']);
 
 
 
