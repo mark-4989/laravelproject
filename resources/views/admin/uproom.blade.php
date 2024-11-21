@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head> 
+    <base href="/public">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dark Bootstrap Admin </title>
@@ -25,22 +27,16 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
         <style>
-            .tabled{
-                border: 2px solid white;
-                margin: auto; 
-                width: 80%;
+            label{
+                display: inline-block;
+                width: 200px;
+            }
+            .design{
+                padding-top: 30px;
+            }
+            .midddle{
                 text-align: center;
-                margin-top: 40px;
-            }
-            .thd{
-                background-color: white;
-                padding: 1.3rem;
-            }
-            tr{
-                border: 2px solid white;
-            }
-            td{
-                padding: 10px;
+                padding-top: 40px;
             }
         </style>
   </head>
@@ -52,38 +48,54 @@
       <!-- Sidebar Navigation-->
      @include('admin.sidebar')
      {{-- side nav end --}}
+     {{-- body sec --}}
      <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-<table class="tabled">
-    <tr>
-        <th class="thd">Room Title</th>
-        <th class="thd">Description</th>
-        <th class="thd">price</th>
-        <th class="thd">Room Type</th>
-        <th class="thd">Image </th> 
-        <th class="thd">Action </th> 
+<div class="middle">
+    <h1>Update Room </h1>
+    <form action="{{ url('editroom',$data->id) }}" method="POST" enctype="multipart/form-data" >
+        @csrf
+        <div class="design">
+            <label>Room title</label>
+            <input type="text" name="title" value="{{ $data->room_title }}" >
+        </div>
+        <div class="design">
+            <label>Description</label>
+            <textarea name="description">{{ $data->description }}</textarea>
+        </div>
+        <div class="design">
+            <label>Price</label>
+            <input type="number" name="price" value="{{ $data->price }}" >
+        </div>
+        <div class="design">
+            <label>Room type</label>
+            <select name="type">
+                <option selected value="{{ $data->room_type }}" >{{ $data->room_type }}</option>
+                <option value="regular" > Regular </option>
+                <option value="premium" > premium </option>
+                <option value="dulex" >  Dulex </option>
 
-    </tr>
-
-  @foreach ($data as $data)
-      
-    <tr>
-        <td>{{ $data->room_title }}</td>
-        <td>{{ $data->description }}</td>
-        <td>{{ $data->price }}$</td>
-        <td>{{ $data->room_type }}</td>
-        <td> <img width="100" src="room/{{ $data->image }}" > </td>
-        <td><a onclick="return confirm('Are you Sure You want to delete this Room');" class="btn btn-danger" href="{{ url('destroy',$data->id) }}" >Delete </a>
-        <a class="btn btn-warning" href="{{url('uproom',$data->id)}}" >Update</a>
-        </td>
-    </tr>
-    @endforeach  
-
-</table>
+            </select>
+            
+        </div>
+        <div class="design">
+            <label>Current Image</label>
+            <img style="margin: auto;" width="100" src="/room/{{ $data->image }}" alt="">
+        </div>
+        <div class="design">
+            <label>Image</label>
+            <input type="file" name="image" >
+        </div>
+        <div class="design">
+            <input type="submit" value="Update Room" >
+        </div>
+    </form>
+</div>
           </div>
         </div>
      </div>
+     {{-- end of body  --}}
      
        @include('admin.footer')
   </body>

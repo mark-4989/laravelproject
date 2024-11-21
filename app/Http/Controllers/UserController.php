@@ -68,4 +68,9 @@ return redirect()->back();
         $data->delete();
         return redirect()->back();
     }
+    public function uproom($id)
+    {
+        $data=Room::find($id);
+        return view('admin.uproom',compact('data'));
+    }
 }

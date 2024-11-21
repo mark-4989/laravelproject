@@ -30,6 +30,7 @@ Route::get('/room',[UserController::class,'room']);
 Route::post('/addroom',[UserController::class,'addroom']);
 Route::get('/showroom',[UserController::class,'showroom']);
 Route::get('/destroy/{id }',[UserController::class,'destroy']);
+Route::get('/uproom/{id}',[UserController::class,'uproom']);
 
 
 
