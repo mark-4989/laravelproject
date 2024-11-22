@@ -38,6 +38,9 @@ Route::get('/deletebooking/{id}',[UserController::class,'deletebooking']);
 Route::get('/view_gallary',[UserController::class,'view_gallary']);
 Route::post('/upload',[UserController::class,'upload']);
 Route::get('/deleteGallary/{id}',[UserController::class,'deleteGallary']);
+Route::post('/contact',[HomeController::class,'contact']);
+
+
 
 
 

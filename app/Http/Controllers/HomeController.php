@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Contact;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -29,4 +30,18 @@ return view('home.roomdetails',compact('room'));
        return redirect()->back()->with('message','Room Booked Successfuly');
 
     }
+    public function contact(Request $request)
+    {
+        $contact = new Contact;
+
+        $contact->name= $request->name;
+        $contact->email= $request->email;
+        $contact->phone= $request->phone;
+        $contact->message= $request->message;
+
+        $contact->save();
+
+        return redirect()->back()->with('message','message sent successfuly');
+    }
+ 
 }

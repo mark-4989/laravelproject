@@ -1,24 +1,24 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}"  style="text-align:center; margin:20px; padding:10px; background-color:rgb(177, 174, 174); width:500px; height:400px; justify-content:center;">
         @csrf
-
+<h2>Register</h2>
         <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
+        <div style="pading:30px;margin:30px;">
+            <x-input-label for="name" :value="__('Name')" /><br>
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
+        <div class="mt-4" style="pading:30px;margin:30px;">
+            <x-input-label for="email" :value="__('Email')" /><br>
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <div class="mt-4" style="pading:30px;margin:30px;">
+            <x-input-label for="password" :value="__('Password')" /><br>
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -29,8 +29,8 @@
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        <div class="mt-4" style="pading:30px;margin:30px;">
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" /><br>
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"

@@ -97,6 +97,6 @@
      </div>
      {{-- end of body  --}}
      
-       @include('admin.footer')
+      
   </body>
 </html>

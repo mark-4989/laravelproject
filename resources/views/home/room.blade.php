@@ -1,10 +1,10 @@
-<div  class="our_room">
+<div  class="our_room" id="room">
     <div class="container">
        <div class="row">
           <div class="col-md-12">
              <div class="titlepage">
                 <h2>Our Room</h2>
-                <p>Lorem Ipsum available, but the majority have suffered </p>
+                <p>Our rooms are designed to make your stay comfortable</p>
              </div>
           </div>
        </div>

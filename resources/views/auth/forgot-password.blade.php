@@ -6,17 +6,17 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('password.email') }}">
+    <form method="POST" action="{{ route('password.email') }}  style="" style="text-align:center; margin:20px; padding:10px; background-color:rgb(177, 174, 174); width:500px; height:300px; justify-content:center;" >
         @csrf
 
         <!-- Email Address -->
-        <div>
+        <div style="pading:30px;margin:30px;">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-end mt-4" style="pading:30px;margin:30px;">
             <x-primary-button>
                 {{ __('Email Password Reset Link') }}
             </x-primary-button>

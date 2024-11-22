@@ -1,20 +1,23 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('login') }}">
+    <div class="col-lg-6 bg-white">
+        <div class="form d-flex align-items-center">
+          <div class="content">
+        
+    <form method="POST" action="{{ route('login') }}" style="text-align:center; margin:20px; padding:10px; background-color:rgb(177, 174, 174); width:500px; height:300px; justify-content:center;">
         @csrf
-
+        <h1>Welcome to Login </h1>
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
+        <div style="pading:30px;margin:30px;">
+            <x-input-label for="email" :value="__('Email')" /><br>
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <div class="mt-4 " style="margin: 30px;">
+            <x-input-label for="password" :value="__('Password')" /><br>
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -44,4 +47,7 @@
             </x-primary-button>
         </div>
     </form>
+          </div>
+        </div>
+    </div>
 </x-guest-layout>

@@ -1,4 +1,4 @@
-<div class="contact">
+<div class="contact" id="contact">
     <div class="container">
        <div class="row">
           <div class="col-md-12">
@@ -6,25 +6,48 @@
                 <h2>Contact Us</h2>
              </div>
           </div>
+          {{-- <div style="color: red; font-size:bold;">
+          @if (session()->has('message'))
+             {{ session()->get('message') }}
+          @endif
+          </div> --}}
+          @if (session()->has('message'))
+          <div class="alert alert-success">
+           {{-- <button type="button" class="close" data-bs-dismiss="alert" >X</button> --}}
+             {{ session()->get('message') }}
+          </div>
+          @endif
+  
+          @if ($errors)
+  
+          @foreach ($errors->all() as $errors )
+  
+          <li style="color: red;">
+           {{ $errors }}
+          </li>
+             
+          @endforeach
+          @endif
        </div>
        <div class="row">
           <div class="col-md-6">
-             <form id="request" class="main_form">
+             <form id="request" class="main_form" action="{{url('contact')  }}" method="POST">
+               @csrf
                 <div class="row">
                    <div class="col-md-12 ">
-                      <input class="contactus" placeholder="Name" type="type" name="Name"> 
+                      <input class="contactus" placeholder="Name" type="type" name="name"> 
                    </div>
                    <div class="col-md-12">
-                      <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                      <input class="contactus" placeholder="Email" type="email" name="email"> 
                    </div>
                    <div class="col-md-12">
-                      <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                      <input class="contactus" placeholder="Phone Number" type="number" name="phone">                          
                    </div>
                    <div class="col-md-12">
-                      <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
+                      <textarea class="textarea" placeholder="Message" type="type" name="message">Message</textarea>
                    </div>
                    <div class="col-md-12">
-                      <button class="send_btn">Send</button>
+                      <button class="send_btn" type="submit">Send</button>
                    </div>
                 </div>
              </form>
