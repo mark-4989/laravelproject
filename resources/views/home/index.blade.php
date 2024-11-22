@@ -107,7 +107,7 @@
       @include('home.room')
       <!-- end our_room -->
       <!-- gallery -->
-    
+    @include('home.gallery')
       <!-- end gallery -->
      
       <!--  contact -->

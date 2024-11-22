@@ -1,4 +1,4 @@
-hi<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head> 
     <meta charset="utf-8">
@@ -39,14 +39,21 @@ hi<!DOCTYPE html>
           <div class="container-fluid">
             <center>
 <h1 style="color: white;">Gallary</h1>
+<div class="row">
+@foreach ($gallary as $gallary )
+<div class="col-md-4">
+  <img style="height: 200px; width:300px;" src="/galla/{{ $gallary->image }}">
+  <a class="btn btn-danger" href="{{ url('deleteGallary',$gallary->id) }}" >Delete image</a>
+</div>
+@endforeach
+</div>
 <form action="{{ url('upload') }}" method="POST" enctype="multipart/form-data" >
     @csrf
-    <div>
-        <label>Upload Image</label>
+    <div style="padding: 10px;">
+        <label style="color: white;">Upload Image</label>
         <input type="file" name="image" >
-    </div>
-    <div>
-        <input type="submit" value="Add Image" >
+
+        <input type="submit" class="btn btn-primary " value="Add Image" >
     </div>
 </form>
             </center>

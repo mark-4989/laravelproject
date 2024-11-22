@@ -21,7 +21,9 @@ if($usertype == 'user')
 {
     $room=Room::all();
 
-    return view('home.index',compact('room'));
+    $gallary = Gallary::all();
+
+    return view('home.index',compact('room','gallary'));
 }
  else if($usertype == 'admin')
 {
@@ -38,7 +40,8 @@ return redirect()->back();
     public function home()
     { 
         $room=Room::all();
-        return view('home.index',compact('room'));
+        $gallary= Gallary::all();
+        return view('home.index',compact('room','gallary'));
  
     }
 
@@ -119,23 +122,31 @@ public function deletebooking($id)
     return redirect()->back();
 }
 
-public function gallary()
+public function view_gallary()
 {
-    return view('admin.gallary');
+    $gallary=Gallary::all();
+    return view('admin.gallary',compact('gallary'));
 }
  
  public function upload(Request $request)
  {
-$data= new Gallary;
-$image=$request->image;
+$data = new Gallary;
+$image = $request->image;
 if($image)
 {
-    $imagename=time().'.'.$image->getClientOriginalExtension();
-    $request->image->move('galla');
+    $imagename = time().'.'.$image->getClientOriginalExtension();
+    $request->image->move('galla',$imagename);
     $data->image = $imagename;
     $data->save();
     return redirect()->back();
 }
+ }
+ public function deleteGallary($id)
+ {
+$data = Gallary::find($id);
+$data->delete();
+return redirect()->back();
+
  }
 
 }

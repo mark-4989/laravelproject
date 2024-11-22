@@ -35,8 +35,9 @@ Route::get('/roomdetails/{id}',[HomeController::class,'roomdetails']);
 Route::post('/create/{id}',[HomeController::class,'create']);
 Route::get('/bookings',[UserController::class,'bookings']);
 Route::get('/deletebooking/{id}',[UserController::class,'deletebooking']);
-Route::get('/gallary',[UserController::class,'gallary']);
+Route::get('/view_gallary',[UserController::class,'view_gallary']);
 Route::post('/upload',[UserController::class,'upload']);
+Route::get('/deleteGallary/{id}',[UserController::class,'deleteGallary']);
 
 
 
